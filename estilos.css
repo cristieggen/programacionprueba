@@ -1,0 +1,809 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #fff;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap; 
+}
+
+.header-content img {
+  height: 70px;
+}
+
+.header-content h1 {
+  font-size: 30px;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.header-content li {
+  list-style: none;
+  font-size: 14px;
+  color: #666;
+}
+
+.menus {
+  position: relative;
+}
+
+.menu-icon,
+#cierre {
+  display: none !important;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s;
+  display: block;
+  text-align: center
+}
+
+nav li {
+  text-align: center;   
+  flex: 1;              
+}
+
+nav a:hover {
+  color: #666;
+}
+
+.search-box input {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* BOTONES VERTICALES (intro-de-pagina) */
+
+#intro-de-pagina {
+  background-image: url('imagenes/cubismofondo.png'); 
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 80px 20px 40px;
+}
+
+#intro-de-pagina img {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6.5px 10px rgba(0,0,0,0.3);
+}
+
+#intro-de-pagina img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4); 
+}
+
+/* SECCIÓN PRINCIPAL CON FONDO */
+.main-section {
+  background: url("imagenes/fondo1.png") no-repeat center/cover;
+  color: black;
+  padding: 60px 20px;
+  text-align: center;
+}
+.main-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  letter-spacing: 1.4px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.main-section p {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  line-height: 1.8;
+  letter-spacing: 0.4px;
+  text-align: left;
+}
+
+/* GALERÍA CON BOTONES */
+.carrusel {
+  position: relative;
+  max-width: 600px; /* Reducimos el ancho para que las imágenes sean más pequeñas */
+  margin: 50px auto; 
+}
+.carrusel-track {
+  display: flex; /* Usamos flexbox para alinear las imágenes */
+  align-items: center; /* Centra las imágenes verticalmente */
+  transition: transform 0.5s ease-in-out; /* Mantiene la animación de deslizamiento */
+}
+.carrusel img {
+  width: 100%; /* Cada imagen ocupa el 100% del contenedor del carrusel */
+  flex-shrink: 0; /* Evita que las imágenes se encojan */
+  transform: scale(0.7); /* Las imágenes no activas son más pequeñas */
+  opacity: 0.5; /* Y más transparentes */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.carrusel img.active {
+  transform: scale(1); /* La imagen activa recupera su tamaño y opacidad */
+  opacity: 1;
+}
+.carrusel-track-buttons {
+  position: absolute;
+  top: 50%;
+  left: -20px; /* Movemos los botones un poco hacia afuera */
+  right: -20px;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 10; /* Nos aseguramos que los botones estén por encima */
+}
+.carrusel button {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+
+/* AUTO-GALERÍA */
+.auto-gallery {
+  padding: 40px 20px;
+  text-align: center;
+  overflow: hidden; /* Oculta el desbordamiento para el efecto de ruleta */
+  background-image: url('imagenes/fondo1.png'); 
+}
+.auto-gallery h3 {
+  font-size: 25px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+}
+
+.auto-gallery p {
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  letter-spacing: 0.4px;
+}
+.auto-gallery-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 20s linear infinite;
+}
+.auto-gallery img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.frase h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 1.4px;
+  margin-top: 50px;
+}
+
+.frase p {
+  font-size: 1.2rem;
+  letter-spacing: 1.4px;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+/* PÁGINA DE GALERÍA CON LIGHTBOX */
+.gallery-main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.gallery-main h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.gallery-main p {
+  margin-bottom: 30px;
+  color: #666;
+}
+.lightbox-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 90px;
+}
+.gallery-item {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.gallery-item:hover {
+  position: relative;
+  z-index: 10;
+}
+.gallery-item h2 {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #333;
+}
+.gallery-item p {
+  font-size: 0.9rem;
+  color: black;
+}
+.gallery-item a img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Hacemos las imágenes cuadradas para controlar su altura */
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item a img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* --- ESTILOS PARA EL VISOR DE IMAGEN SIMPLE --- */
+
+/* El contenedor del modal (fondo oscuro) */
+#image-viewer {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Se queda en su sitio */
+  z-index: 2000; /* Se asegura que esté por encima de todo */
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Habilita el scroll si es necesario */
+  background-color: rgba(0,0,0,0.9); /* Fondo negro con opacidad */
+}
+
+/* Contenido del Modal (la imagen) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 85vh;
+}
+
+/* El botón de cierre (x) */
+.close-viewer {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.close-viewer:hover,
+.close-viewer:focus {
+  color: #bbb;
+  text-decoration: none;
+}
+/* Contenedor del carrusel con fondo */
+.carousel-wrapper {
+  background-image: url('imagenes/fondohistoria.png');
+  background-size: cover; /* Asegura que la imagen cubra todo el ancho */
+  background-position: center;
+  padding: 200px 0; /* Aumentamos el padding para dar más altura a la sección */
+}
+#carruselconcaption {
+  position: relative;
+  max-width: 600px;
+  margin: 40px auto;
+  overflow: hidden;
+  height: 400px; 
+}
+
+#carruselconcaption img {
+  display: block;
+}
+
+#carruselconcaption .slides {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#carruselconcaption .slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; 
+  animation: crossfade 18s infinite; 
+  text-align: center;
+  display: flex; /* Habilitamos flexbox */
+  flex-direction: column; /* Apilamos imagen y caption verticalmente */
+  justify-content: center; /* Centramos verticalmente */
+  color: white;
+}
+
+#carruselconcaption .caption {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Añadimos retrasos a cada slide para que aparezcan en secuencia */
+#carruselconcaption .slide:nth-child(1) { animation-delay: 0s; }
+#carruselconcaption .slide:nth-child(2) { animation-delay: 3s; }
+#carruselconcaption .slide:nth-child(3) { animation-delay: 6s; }
+#carruselconcaption .slide:nth-child(4) { animation-delay: 9s; }
+#carruselconcaption .slide:nth-child(5) { animation-delay: 12s; }
+#carruselconcaption .slide:nth-child(6) { animation-delay: 15s; }
+
+@keyframes crossfade {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1; /* Aparece */
+  }
+  16.66% {
+    opacity: 1; /* Se mantiene visible */
+  }
+  21.66% {
+    opacity: 0; /* Desaparece */
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* SECCIÓN CAMBIOS CULTURALES */
+#cambios-culturales-historia {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#cambios-culturales-historia h4 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  letter-spacing: 1.4px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+#cambios-culturales-historia p {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  line-height: 1.8;
+  letter-spacing: 0.4px;
+  text-align: left;
+}
+
+/* SECCIÓN INFO-HISTORIA */
+#info-historia {
+  padding: 60px 20px;
+  text-align: center;
+  background-image: url('imagenes/fondoañosdedesarrollo.png');
+  background-size: cover;
+}
+#info-historia img {
+  max-width: 700px; 
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#info-historia h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+}
+
+#info-historia p {
+  font-size: 28px;
+  letter-spacing: 0.4px;
+}
+
+
+/* SECCIÓN INFO-HISTORIA */
+#info-historia {
+  padding: 60px 20px;
+  text-align: center;
+  background-image: url('imagenes/fondoañosdedesarrollo.png');
+  background-size: cover;
+}
+
+
+/* BOTONES HORIZONTALES (intro-de-filosofia) */
+#intro-de-filosofia {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  padding: 80px;
+  background-image: url('imagenes/fondofilosofia.png');
+  background-size: cover;
+}
+
+#intro-de-filosofia img {
+  max-width: 300px; 
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6.5px 10px rgba(0,0,0,0.3);
+}
+
+#intro-de-filosofia img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4); 
+}
+
+#info-filosofia {
+  padding: 80px;
+  background-image: url('imagenes/fondo1.png');
+  background-size: cover;
+}
+
+#info-filosofia img {
+  max-width: 500px; /* Puedes ajustar este valor para hacerla más pequeña o grande */
+  width: 100%;
+  height: auto;
+}
+
+#info-filosofia h2{
+    font-size: 25px;
+    margin-bottom: 20px;
+    letter-spacing: 1.4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+.info-filosofia-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.info-filosofia-content p {
+  flex-basis: 50%;
+  text-align: left;
+}
+.info-filosofia-content img {
+  flex-basis: 50%;
+}
+
+#tiposdecubismo h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  text-align: center;
+}
+
+.tipo-cubismo .auto-gallery {
+  height: 200px; 
+  overflow: hidden; 
+  margin-bottom: 20px; 
+}
+
+#tiposdecubismo h4 {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#tiposdecubismo h5 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#tiposdecubismo p {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  line-height: 1.8;
+  letter-spacing: 0.4px;
+  text-align: left;
+}
+
+.carouselconnombre-wrapper {
+  background-image: url('imagenes/fondoartistas.png');
+  background-size: cover; 
+  background-position: center;
+  padding: 200px 0;
+}
+
+.carrusel-con-nombre {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  height: 400px;
+}
+
+.carrusel-con-nombre .carrusel-track {
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+}
+.carrusel-con-nombre .carrusel-track-buttons {
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  right: -20px;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.carrusel-con-nombre button {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 10; /* Nos aseguramos que los botones estén por encima */
+}
+.carrusel-con-nombre figure.slide {
+  width: 100%;
+  flex-shrink: 0;
+  transform: scale(0.7);
+  opacity: 0.5;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  position: relative;
+}
+.carrusel-con-nombre figure.slide.active {
+  transform: scale(1);
+  opacity: 1;
+}
+.carrusel-con-nombre img {
+  width: 100%;
+  display: block;
+}
+.carrusel-con-nombre figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.carrusel-con-nombre figure.slide.active figcaption {
+  opacity: 1;
+}
+
+#hacia-artistas {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 80px 20px 40px;
+}
+
+#hacia-artistas img {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6.5px 10px rgba(0,0,0,0.3);
+}
+
+#hacia-artistas img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4); 
+}
+
+#intro-de-galeria {
+  padding: 150px 80px; /* Aumentamos el padding vertical para más altura */
+  margin-bottom: 30px;
+  background-image: url('imagenes/fondoobras.png');
+  background-size: cover;
+}
+
+#intro-de-galeria p {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #222;
+  font-size: 18px;
+  letter-spacing: 0.4px;
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.artistas-wrapper {
+  padding: 200px 0;
+  background-position: center;
+  background-size: cover;
+}
+.carouseldelegado-wrapper {
+  background-image: url('imagenes/fondolegado.png');
+  background-size: cover; 
+  background-position: center;
+  padding: 200px 0;
+}
+
+#legado-wrapper {
+  background-image: url('imagenes/fondolegado.png');
+}
+
+#info-legado {
+  padding: 80px;
+  background-image: url('imagenes/fondo1.png');
+  background-size: cover;
+}
+
+#info-legado img {
+  max-width: 500px; 
+}
+
+#info-legado h2{
+    font-size: 25px;
+    margin-bottom: 20px;
+    letter-spacing: 1.4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+.info-legado-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.info-legado-content p {
+  flex-basis: 50%;
+  text-align: left;
+}
+.info-legado-content img {
+  flex-basis: 50%;
+}
+
+#hacia-ramas {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 80px 20px 40px;
+}
+
+#hacia-ramas img {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6.5px 10px rgba(0,0,0,0.3);
+}
+
+#hacia-ramas img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4); 
+}
+
+
+/* FOOTER */
+footer {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 110px;
+}
+
+.footer-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  height: 40px;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.social-icons {
+  margin-bottom: 0;
+}
+.social-icons a {
+  color: #9C9C9C;
+  margin: 0 10px;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+.social-icons a:hover {
+  color: #aaa;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #f5f5f5;
+    padding: 20px;
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  #menu.active ul {
+    display: flex;
+  }
+  #cierre {
+    display: block;
+    align-self: flex-end;
+  }
+  #intro-de-pagina {
+    flex-direction: column;
+    align-items: center;
+  }
+  .auto-gallery-track img {
+    width: 200px;
+    height: 150px;
+  }
+  .lightbox-gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+  }
+  footer {
+    flex-direction: column; /* Apila los elementos del footer verticalmente */
+    justify-content: center;
+    text-align: center;
+  }
+}
